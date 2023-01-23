@@ -12,14 +12,7 @@ function draw(x, y) {
 let isMousedown = false;
 canvas.addEventListener("mousedown", (e) => {
   isMousedown = true;
-  console.log("mousedown is me");
-  //  const { clientX, ClientY } = e;
-  //   console.log(e);
-  //   const { clientX, clientY } = e;
-  //   const react = canvas.getBoundingClientRect();
-  //   console.log(react);
-  //   console.log(clientX, clientY);
-  //   draw(clientX - react.left, clientY - react.top);
+  console.log("mousedown is me------");
 });
 
 canvas.addEventListener("mouseup", (e) => {
@@ -38,3 +31,19 @@ canvas.addEventListener("mousemove", (e) => {
   console.log(clientX, clientY);
   draw(clientX - react.left, clientY - react.top);
 });
+
+const colorPickers = [...document.querySelectorAll(".color-picker")];
+
+colorPickers.forEach((colorPicker) => {
+  colorPicker.addEventListener("click", (e) => {
+    ctx.fillStyle = e.target.style.backgroundColor;
+  });
+});
+const btnclear = document.querySelector("#btn-clear");
+btnclear.addEventListener("click", (e) => {
+  ctx.clearRect(0, 0, 600, 600);
+});
+// $("#btn-clear").addEventListener("click", (e) => {
+//   console.log(e);
+//
+// });
